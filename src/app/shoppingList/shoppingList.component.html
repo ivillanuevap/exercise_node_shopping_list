@@ -1,0 +1,42 @@
+<div class="content-container">
+    <div class="content-area">
+        <div class="clr-row">
+            <div cds-layout="horizontal">
+                <input id="create-item-input" placeholder="Item name" type="text"/>
+                <br>
+                <!-- TODO - add functionality to Add button -->
+                <cds-button action="outline" size="sm">Add</cds-button>
+            </div>
+        </div>
+        <div class="clr-row">
+            <div class="clr-col-6" *ngFor="let items of listsItems; index as i;">
+                <h4>{{this.listsNames[i]}}</h4>
+                <div [attr.data-test-id]="'list-'+ i">
+                    <div class="clr-row" *ngFor="let item of items; index as index;">
+                        <div class="clr-col-9">
+                            <span cds-text="subsection" style="padding: 5px">{{item.name}}</span>
+                        </div>
+                        <div class="clr-col-3">
+                            <!-- TODO - add functionality to Move Left button -->
+                            <!-- TODO - add attr disabled when item.list is the first list -->
+                            <cds-icon-button action="outline" size="sm" aria-label="To buy">
+                                <cds-icon shape="arrow" direction="left"></cds-icon>
+                            </cds-icon-button>
+                            &nbsp;
+                            <!-- TODO - add functionality to Move Right button -->
+                            <!-- TODO - add attr disabled when item.list is the last list -->
+                            <cds-icon-button action="outline" size="sm" aria-label="Bought">
+                                <cds-icon shape="arrow" direction="right"></cds-icon>
+                            </cds-icon-button>
+                            &nbsp;
+                            <!-- TODO - add functionality to Remove button -->
+                            <cds-icon-button action="outline" size="sm" status="danger" aria-label="Remove">
+                                <cds-icon shape="trash"></cds-icon>
+                            </cds-icon-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
